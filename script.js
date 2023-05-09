@@ -6,6 +6,7 @@ const CLEAR_EQUATION = document.querySelector('.calculator__clear')
 const COMMA = document.querySelector('.calculator__comma')
 const EQUATION = document.querySelector('.calculator__result')
 
+// regex checks for number
 const regexNumCheck = /^[0-9]/
 
 function CalculateResult(arr) {
@@ -23,7 +24,7 @@ NUMBERS.forEach(function(number) {
     })
 })
 
-// adds opeartor to equation input
+// adds opeartor to equation input if it is accepted by the regex test
 OPERATORS.forEach(function(operator) {
     operator.addEventListener('click', function(e) {
         if(regexNumCheck.test(EQUATION.value.split('')[EQUATION.value.length - 1])) {
@@ -39,7 +40,6 @@ COMMA.addEventListener('click', function(e) {
     }
 })
 
-// clears user input from the input field
 CLEAR_EQUATION.addEventListener('click', function(e) {
     EQUATION.value = ''
 })
